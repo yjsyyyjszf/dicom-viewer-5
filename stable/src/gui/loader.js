@@ -78,7 +78,6 @@ dwvjq.gui.FileLoad = function (app)
             self.onchange(event);
         }
 
-
         // arquivos carregados
         var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
         var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
