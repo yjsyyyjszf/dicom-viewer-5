@@ -57,14 +57,7 @@
   </style>
   <!-- mobile web app -->
   <meta name="mobile-web-app-capable" content="yes" />
-  <!-- apple specific -->
-  <meta name="apple-mobile-web-app-capable" content="yes" />
-  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-  <link rel="apple-touch-icon" sizes="16x16" href="resources/icons/icon-16.png" />
-  <link rel="apple-touch-icon" sizes="32x32" href="resources/icons/icon-32.png" />
-  <link rel="apple-touch-icon" sizes="64x64" href="resources/icons/icon-64.png" />
-  <link rel="apple-touch-icon" sizes="128x128" href="resources/icons/icon-128.png" />
-  <link rel="apple-touch-icon" sizes="256x256" href="resources/icons/icon-256.png" />
+
   <!-- Third party (dwv) -->
   <script type="text/javascript" src="node_modules/i18next/i18next.min.js"></script>
   <script type="text/javascript" src="node_modules/i18next-xhr-backend/i18nextXHRBackend.min.js"></script>
@@ -86,15 +79,6 @@
   <script type="text/javascript" src="node_modules/dwv/decoders/rii-mango/lossless-min.js"></script>
   <!-- dwv -->
   <script type="text/javascript" src="node_modules/dwv/dist/dwv.min.js"></script>
-
-  <!-- Google -->
-  <script type="text/javascript" src="ext/google-api-javascript-client/client.js"></script>
-  <script type="text/javascript" src="ext/google-api-javascript-client/api.js"></script>
-  <script type="text/javascript" src="src/google.js"></script>
-
-  <!-- Dropbox -->
-  <script type="text/javascript" src="ext/dropbox-dropins/dropins.js" id="dropboxjs" data-app-key="96u3396jtx3bwr8"></script>
-  <script type="text/javascript" src="src/dropbox.js"></script>
 
   <!-- browser -->
   <script type="text/javascript" src="src/utils/browser.js"></script>
@@ -147,16 +131,6 @@
           <a id="next_image" class="ui-btn ui-btn-inline" style="border-radius: 10px; font-family:  monospace; font-size: 15pt; font-weight: bolder;"> >> </a>
         </div>
 
-        <!-- Auth popup -->
-        <div data-role="popup" id="popupAuth">
-          <a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right" data-i18n="basics.close">Close</a>
-          <div style="padding:10px 20px;">
-            <h3 data-i18n="io.GoogleDrive.auth.title">Google Drive Authorization</h3>
-            <p data-i18n="io.GoogleDrive.auth.body">Please authorize DWV to access your Google Drive.
-              <br>This is only needed the first time you connect.</p>
-            <button id="gauth-button" class="ui-btn" data-i18n="io.GoogleDrive.auth.button">Authorize</button>
-          </div>
-        </div><!-- /popup -->
 
         <!-- Open popup -->
         <div data-role="popup" id="popupOpen">

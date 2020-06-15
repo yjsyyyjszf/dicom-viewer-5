@@ -97,7 +97,7 @@ dwvjq.gui.FileLoad = function (app)
             if (file_json.length) {
                 file_pair.push(file_json[0])
             }
-            app.loadFiles([files_img[0], file_json[0]]);
+            app.loadFiles(file_pair);
 
             // >>
             var fileNext = document.querySelector("#next_image");
