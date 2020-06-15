@@ -44,7 +44,7 @@ function startApp() {
             type: "factory",
             events: ["draw-create", "draw-change", "draw-move", "draw-delete"]
         },
-        "Scroll": {},
+        //"Scroll": {},
         "WindowLevel": {},
         // "Livewire":  {
         //     events: ["draw-create", "draw-change", "draw-move", "draw-delete"]
@@ -199,7 +199,7 @@ function startApp() {
         }
         else if (event.keyCode === 87 ) { // key W enable windowlevel
             myapp.xdraw = false
-            changeTool(3)
+            changeTool(2)
         }
         else if (event.keyCode === 27 ) { // key ESC enable zoom
             myapp.xdraw = false

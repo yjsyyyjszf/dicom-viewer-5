@@ -77,19 +77,21 @@ dwvjq.gui.FileLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
+
+
+        // arquivos carregados
+        var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
+        var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
+
+        if (files_img.length){
+            app.xfiles = files_img
+            app.xjson = files_json
+            app.xcurrentSlice = 1
+            app.annotations = null
+            app.finishAnnotations = false
+        }
+
         if (event.target.files.length > 1) {
-
-            // arquivos carregados
-            var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
-            var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
-
-            if (files_img.length){
-                app.xfiles = files_img
-                app.xjson = files_json
-                app.xcurrentSlice = 1
-                app.annotations = null
-                app.finishAnnotations = false
-            }
 
             var file_img = files_img[0].name.split(".").shift()
             var file_json = (files_json).filter(value => value.name.includes(file_img))
