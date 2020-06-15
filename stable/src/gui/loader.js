@@ -77,7 +77,78 @@ dwvjq.gui.FileLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
-        app.loadFiles(event.target.files);
+        if (event.target.files.length > 1) {
+
+            // arquivos carregados
+            var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
+            var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
+
+            if (files_img.length){
+                app.xfiles = files_img
+                app.xjson = files_json
+                app.xcurrentSlice = 1
+                app.annotations = null
+                app.finishAnnotations = false
+            }
+
+            var file_img = files_img[0].name.split(".").shift()
+            var file_json = (files_json).filter(value => value.name.includes(file_img))
+            var file_pair = [files_img[0]]
+            if (file_json.length) {
+                file_pair.push(file_json[0])
+            }
+            app.loadFiles([files_img[0], file_json[0]]);
+
+            // >>
+            var fileNext = document.querySelector("#next_image");
+            fileNext.onclick = function(){
+                app.xcurrentSlice += 1
+                if (app.xcurrentSlice > app.xfiles.length){
+                    app.xcurrentSlice = app.xfiles.length
+                }
+                else{
+                    file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                    file_json = (files_json).filter(value => value.name.includes(file_img))
+                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    if (file_json.length) {
+                        file_pair.push(file_json[0])
+                    }
+                    app.loadFiles(file_pair)
+                }
+            }
+
+            // <<
+            var fileBefore = document.querySelector("#previous_image");
+            fileBefore.onclick = function(){
+                app.xcurrentSlice -= 1
+                if (app.xcurrentSlice < 1){
+                    app.xcurrentSlice = 1
+                }
+                else {
+                    file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                    file_json = (files_json).filter(value => value.name.includes(file_img))
+                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    if (file_json.length) {
+                        file_pair.push(file_json[0])
+                    }
+                    app.loadFiles(file_pair)
+                }
+            }
+
+            // keyboard shortcuts listener
+            var keyShortcut = function (event) {
+                if (event.keyCode === 39 ) { // key S enable scroll
+                    fileNext.click()
+                }
+                else if (event.keyCode === 37 ) { // key W enable windowlevel
+                    fileBefore.click()
+                }
+            }
+            window.addEventListener("keydown", keyShortcut);
+        }
+        else {
+            app.loadFiles(event.target.files)
+        }
     }
 
     /**
@@ -139,7 +210,77 @@ dwvjq.gui.FolderLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
-        app.loadFiles(event.target.files);
+        if (event.target.files.length > 1) {
+            // arquivos carregados
+            var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
+            var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
+
+            if (files_img.length){
+                app.xfiles = files_img
+                app.xjson = files_json
+                app.xcurrentSlice = 1
+                app.annotations = null
+                app.finishAnnotations = false
+            }
+
+            var file_img = files_img[0].name.split(".").shift()
+            var file_json = (files_json).filter(value => value.name.includes(file_img))
+            var file_pair = [files_img[0]]
+            if (file_json.length) {
+                file_pair.push(file_json[0])
+            }
+            app.loadFiles([files_img[0], file_json[0]]);
+
+            // >>
+            var fileNext = document.querySelector("#next_image");
+            fileNext.onclick = function(){
+                app.xcurrentSlice += 1
+                if (app.xcurrentSlice > app.xfiles.length){
+                    app.xcurrentSlice = app.xfiles.length
+                }
+                else{
+                    file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                    file_json = (files_json).filter(value => value.name.includes(file_img))
+                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    if (file_json.length) {
+                        file_pair.push(file_json[0])
+                    }
+                    app.loadFiles(file_pair)
+                }
+            }
+
+            // <<
+            var fileBefore = document.querySelector("#previous_image");
+            fileBefore.onclick = function(){
+                app.xcurrentSlice -= 1
+                if (app.xcurrentSlice < 1){
+                    app.xcurrentSlice = 1
+                }
+                else {
+                    file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                    file_json = (files_json).filter(value => value.name.includes(file_img))
+                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    if (file_json.length) {
+                        file_pair.push(file_json[0])
+                    }
+                    app.loadFiles(file_pair)
+                }
+            }
+
+            // keyboard shortcuts listener
+            var keyShortcut = function (event) {
+                if (event.keyCode === 39 ) { // key S enable scroll
+                    fileNext.click()
+                }
+                else if (event.keyCode === 37 ) { // key W enable windowlevel
+                    fileBefore.click()
+                }
+            }
+            window.addEventListener("keydown", keyShortcut);
+        }
+        else {
+            app.loadFiles(event.target.files)
+        }
     }
 
     /**

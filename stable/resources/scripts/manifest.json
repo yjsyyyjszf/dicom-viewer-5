@@ -6,10 +6,10 @@
   "manifest_version": 2,
   "app": {
     "urls": [
-      "https://andre23arruda.github.io/dicom-viewer/"
+      "https://ivmartel.github.io/dwv-jqmobile/demo/stable/"
     ],
     "launch": {
-      "web_url": "https://andre23arruda.github.io/dicom-viewer/index.html"
+      "web_url": "https://ivmartel.github.io/dwv-jqmobile/demo/stable/index.html"
     }
   },
   "icons": {
@@ -26,7 +26,7 @@
     "http://drive.google.com/intents/opendrivedoc": [
       {
         "type": ["application/dicom", "application/vnd.google.drive.ext-type.dcm"],
-        "href": "https://andre23arruda.github.io/dicom-viewer/index.html",
+        "href": "https://ivmartel.github.io/dwv-jqmobile/demo/stable/index.html",
         "title": "Open",
         "disposition": "window"
       }

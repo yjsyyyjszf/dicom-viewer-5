@@ -24,8 +24,18 @@ dwvjq.gui.Toolbox = function (app)
             // show tool gui
             for ( var gui in toolGuis ) {
                 toolGuis[gui].display(false);
+
             }
             toolGuis[event.currentTarget.value].display(true);
+
+            // hide info layer if draw tool is selected
+            var element = app.getElement('infoLayer')
+            if (event.currentTarget.value == 'Draw'){
+                element.style.display = "none";
+            }
+            else {
+                element.style.display = "";
+            }
         };
 
         // tool list element
@@ -213,9 +223,10 @@ dwvjq.gui.WindowLevel = function (app)
      */
     this.initialise = function ()
     {
-        if (!app.canWindowLevel()) {
-            return false;
-        }
+        // uncomment this if you want disable windowlevel
+        // if (!app.canWindowLevel()) {
+        //     return false;
+        // }
 
         // create new preset select
         var wlSelector = dwvjq.html.createHtmlSelect("presetSelect",
@@ -473,7 +484,7 @@ dwvjq.gui.ZoomAndPan = function (app)
         button.onclick = function (/*event*/) {
             app.resetZoom();
         };
-        button.setAttribute("style","width:100%; margin-top:0.5em;");
+        button.setAttribute("style","width:100%; margin-top:0.65em;");
         button.setAttribute("class","ui-btn ui-btn-b");
         var text = document.createTextNode(dwv.i18n("basics.reset"));
         button.appendChild(text);
@@ -554,7 +565,7 @@ dwvjq.gui.Scroll = function (app)
      * @returns Boolean True if the tool can be shown.
      */
     this.initialise = function () {
-        return app.canScroll();
+        return false //app.canScroll();
     };
 
 }; // class dwvjq.gui.Scroll

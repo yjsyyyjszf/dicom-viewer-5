@@ -123,6 +123,13 @@ dwvjq.gui.ToolboxContainer = function (app, infoController)
         toggleSaveState.onclick = function () {
             var blob = new Blob([app.getState()], {type: 'application/json'});
             toggleSaveState.href = window.URL.createObjectURL(blob);
+
+            // coloca nome no json que será salvo
+            var file_name = app['xfiles'][app.xcurrentSlice - 1]['name']
+            file_name = file_name.split('.')
+            file_name = file_name[0]
+            var downloadButton = document.querySelector("a.ui-btn.ui-btn-inline.ui-btn-icon-notext.ui-mini.download-state.ui-icon-action")
+            downloadButton.download = `${file_name}_annotations.json`;
         };
         toggleSaveState.download = "state.json";
 

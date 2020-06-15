@@ -9,10 +9,10 @@
   ],
   "license": "GPL-3.0",
   "author": "ivmartel <ivmartel@gmail.com>",
-  "homepage": "https://https://andre23arruda.github.io/dicom-viewer/",
+  "homepage": "https://ivmartel.github.io/dwv-jqmobile/",
   "repository": {
     "type": "git",
-    "url": "git://github.com/andre23arruda/dicom-viewer"
+    "url": "git://github.com/ivmartel/dwv-jqmobile.git"
   },
   "dependencies": {
     "dwv": "0.27.0",

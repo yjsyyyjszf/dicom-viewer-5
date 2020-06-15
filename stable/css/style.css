@@ -1,14 +1,31 @@
 html, body {
     height: 100%;
+
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 10px; padding: 0; }
+    margin: 10px; padding: 0;
+}
 
+#pageHeader{
+    background-color: #000;
+}
+
+.toolbar{
+    display: flex;
+    justify-content: center;
+}
 #pageMain {
     height: 82vh;
     padding: 2px;
+    background-color: #000;
+    overflow: hidden;
+}
+#main{
+    background-color: #000;
+}
+.ui-grid-b{
+    background-color: #000;
 }
 
 /* Layers */
@@ -17,7 +34,8 @@ body {
     margin: auto; text-align: center; }
 .imageLayer {
     position: absolute;
-    left: 0px; }
+    left: 0px;
+}
 .drawDiv { position: absolute; pointer-events: none; }
 
 .dropBox {}
@@ -49,11 +67,65 @@ body {
 
 /* Tag list */
 table.tagsTable { border-collapse: collapse; }
-table.tagsTable thead th { text-transform: uppercase;
-    font-weight: bold; opacity: 0.5;}
+table.tagsTable thead th {
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0.5;}
 table.drawsTable { border-collapse: collapse; }
 table.drawsTable td { vertical-align: middle; }
 table.drawsTable thead th { text-transform: uppercase;
     font-weight: bold; opacity: 0.5;}
 .highlighted { background: #f87217; }
 .tags form { width: 50%; }
+
+
+button.ui-btn.ui-btn-b{
+    border-radius: 3px;
+}
+
+#pageFooter {
+    background-color: black;
+    border: none;
+}
+
+.ui-btn.ui-btn-inline.ui-btn-icon-notext {
+    width: 60px;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+#help_page, #tags_page, #drawList_page{
+    background-color: black;
+}
+
+
+select {
+    background-color: rgb(51, 51, 51);
+    color: white;
+    padding: 22px;
+}
+
+
+input.imagefiles::-webkit-file-upload-button,  input.imagefolder::-webkit-file-upload-button{
+    visibility: hidden;
+}
+
+input.imagefiles::before, input.imagefolder::before {
+    content: 'Select some files';
+    display: inline-flex;
+    background-color:rgb(51, 51, 51);
+    border: 1px solid rgba(17, 17, 17, 0.548);
+    border-radius: 3px;
+    padding: 10px;
+    outline: none;
+    white-space: nowrap;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 10pt;
+}
+
+
+div.ui-input-text.ui-body-inherit.ui-corner-all.ui-mini.ui-shadow-inset.ui-input-has-clear{
+    border: none;
+    box-shadow: none;
+}

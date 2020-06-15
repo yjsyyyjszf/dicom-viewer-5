@@ -25,9 +25,9 @@ dwvjq.gui.appendVersionHtml = function (version)
 dwvjq.gui.appendHelpHtml = function (toolList, mobile, app, resourcesPath)
 {
     var actionType = "mouse";
-    if( mobile ) {
-        actionType = "touch";
-    }
+    // if( mobile ) {
+    //     actionType = "touch";
+    // }
 
     var toolHelpDiv = document.createElement("div");
 
