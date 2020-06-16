@@ -86,8 +86,6 @@ dwvjq.gui.FileLoad = function (app)
             app.xfiles = files_img
             app.xjson = files_json
             app.xcurrentSlice = 1
-            app.annotations = null
-            app.finishAnnotations = false
         }
 
         if (event.target.files.length > 1) {
@@ -220,8 +218,6 @@ dwvjq.gui.FolderLoad = function (app)
                 app.xfiles = files_img
                 app.xjson = files_json
                 app.xcurrentSlice = 1
-                app.annotations = null
-                app.finishAnnotations = false
             }
 
             var file_img = files_img[0].name.split(".").shift()

@@ -111,7 +111,7 @@ input.imagefiles::-webkit-file-upload-button,  input.imagefolder::-webkit-file-u
 }
 
 input.imagefiles::before, input.imagefolder::before {
-    content: 'Select some files';
+    content: 'Selecione arquivos';
     display: inline-flex;
     background-color:rgb(51, 51, 51);
     border: 1px solid rgba(17, 17, 17, 0.548);
@@ -120,12 +120,16 @@ input.imagefiles::before, input.imagefolder::before {
     outline: none;
     white-space: nowrap;
     cursor: pointer;
-    font-weight: 700;
-    font-size: 10pt;
+    font-weight: bolder;
+    font-size: 8.5pt;
 }
 
 
 div.ui-input-text.ui-body-inherit.ui-corner-all.ui-mini.ui-shadow-inset.ui-input-has-clear{
     border: none;
     box-shadow: none;
+}
+
+label.inline.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-off{
+    padding: 10px 20px;
 }

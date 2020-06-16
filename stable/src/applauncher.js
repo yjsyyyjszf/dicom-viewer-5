@@ -78,8 +78,6 @@ function startApp() {
     myapp['xdraw'] = false
     myapp['xfiles'] = null
     myapp['xcurrentSlice'] = 1
-    myapp['annotations'] = null
-    myapp['finishAnnotations'] = false
 
     // show help
     var isMobile = true;
@@ -201,9 +199,18 @@ function startApp() {
             myapp.xdraw = false
             changeTool(2)
         }
-        else if (event.keyCode === 27 ) { // key ESC enable zoom
-            myapp.xdraw = false
-            changeTool(0)
+        else if (event.keyCode === 27) { // key ESC
+            if (document.URL.includes('#')) {
+                var back_button = document.querySelector('a.ui-link.ui-btn-left.ui-btn.ui-icon-back.ui-btn-icon-left.ui-shadow.ui-corner-all') //.key ESC enable zoom
+                back_button.click()
+            }
+            else {
+                if (myapp['xfiles'].length){
+                    myapp.xdraw = false
+                    changeTool(0)
+                }
+            }
+
         }
     }
     window.addEventListener("keydown", keyShortcut);
