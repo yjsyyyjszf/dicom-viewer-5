@@ -136,10 +136,12 @@ dwvjq.gui.ToolboxContainer = function (app, infoController)
         var tags = document.createElement("a");
         tags.href = "#tags_page";
         tags.setAttribute("class", buttonClass + " ui-icon-grid");
+        tags.setAttribute("data-transition", "slide");
 
         var drawList = document.createElement("a");
         drawList.href = "#drawList_page";
         drawList.setAttribute("class", buttonClass + " ui-icon-edit");
+        drawList.setAttribute("data-transition", "slide");
 
         var node = app.getElement("toolbar");
         node.appendChild(open);
