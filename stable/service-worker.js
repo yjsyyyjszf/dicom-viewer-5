@@ -12,8 +12,6 @@ var urlsToCache = [
     // js
     './src/applauncher.js',
     './src/appgui.js',
-    './src/dropbox.js',
-    './src/google.js',
     './src/register-sw.js',
     './src/gui/custom.js',
     './src/gui/dropboxLoader.js',
