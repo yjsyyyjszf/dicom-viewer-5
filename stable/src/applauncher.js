@@ -240,6 +240,7 @@ function startApp() {
         ++nReceivedLoadItem;
         // add new meta data to the info controller
         if (event.loadtype === "image") {
+            console.log(event)
             infoController.onLoadItem(event);
         }
         // hide drop box (for url load)

@@ -76,7 +76,7 @@ dwvjq.gui.info.Controller = function (app, containerDivId)
                 new dwv.dicom.DicomElementsWrapper(data));
         } else {
             // image file case
-            dataUid = data[5].value;
+            //dataUid = data[5].value;
             overlayData[dataUid] =
                 dwvjq.gui.info.createOverlayDataForDom(data);
         }
