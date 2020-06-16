@@ -34,29 +34,8 @@ dwvjq.utils.loadFromUri = function (uri, app)
     var query = dwv.utils.getUriQuery(uri);
     // check query
     if ( query && typeof query.input !== "undefined" ) {
-        // special gdrive
-        if (query.type === "gdrive") {
-            var gAuth = new dwvjq.google.Auth();
-            var gDrive = new dwvjq.google.Drive();
-            gDrive.setIds( query.input.split(',') );
-            // pipeline
-            gAuth.onload = gDrive.load;
-            gAuth.onfail = function () {
-                $("#popupAuth").popup("open");
-                var authorizeButton = document.getElementById('gauth-button');
-                // explicit auth from button to allow popup
-                authorizeButton.onclick = function() {
-                    $("#popupAuth").popup("close");
-                    gAuth.load();
-                };
-            };
-            gDrive.onload = dwvjq.google.getAuthorizedCallback(app.loadURLs);
-            // launch with silent auth
-            gAuth.loadSilent();
-        } else {
-            // default
-            dwv.utils.loadFromQuery(query, app);
-        }
+        dwv.utils.loadFromQuery(query, app);
+
     }
 };
 
