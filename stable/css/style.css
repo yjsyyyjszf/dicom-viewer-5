@@ -1,50 +1,38 @@
-html, body {
-    height: 100%;
+html, body { height: 100%; }
 
-}
+body { margin: 10px; padding: 0; }
 
-body {
-    margin: 10px; padding: 0;
-}
-
-#pageHeader{
-    background-color: #000;
-}
+#pageHeader{ background-color: #000; }
 
 .toolbar{
     display: flex;
     justify-content: center;
 }
+
 #pageMain {
     height: 82vh;
     padding: 2px;
     background-color: #000;
     overflow: hidden;
 }
+
 #main{
     background-color: #000;
 }
-.ui-grid-b{
-    background-color: #000;
-}
+
+.ui-grid-b{ background-color: #000; }
 
 /* Layers */
 .layerContainer {
     position: relative; padding: 0;
     margin: auto; text-align: center; }
-.imageLayer {
-    position: absolute;
-    left: 0px;
-}
+
+.imageLayer { position: absolute; left: 0px; }
+
 .drawDiv { position: absolute; pointer-events: none; }
 
-.dropBox {}
-.dropBoxBorder {
-    margin: 20px auto;
-    border: 5px dashed #ccc; }
-.dropBoxBorder.hover {
-    margin: 20px auto;
-    border: 5px dashed #cc0; }
+.dropBoxBorder { margin: 20px auto; border: 5px dashed #ccc; }
+.dropBoxBorder.hover { margin: 20px auto; border: 5px dashed #cc0; }
 
 .inline { display: inline-block !important; }
 
@@ -67,14 +55,10 @@ body {
 
 /* Tag list */
 table.tagsTable { border-collapse: collapse; }
-table.tagsTable thead th {
-    text-transform: uppercase;
-    font-weight: bold;
-    opacity: 0.5;}
+table.tagsTable thead th { text-transform: uppercase; font-weight: bold; opacity: 0.5;}
 table.drawsTable { border-collapse: collapse; }
 table.drawsTable td { vertical-align: middle; }
-table.drawsTable thead th { text-transform: uppercase;
-    font-weight: bold; opacity: 0.5;}
+table.drawsTable thead th { text-transform: uppercase; font-weight: bold; opacity: 0.5;}
 .highlighted { background: #f87217; }
 .tags form { width: 50%; }
 
@@ -83,9 +67,7 @@ button.ui-btn.ui-btn-b{
     border-radius: 3px;
 }
 
-#pageFooter {
-    background-color: black;
-    border: none;
+#pageFooter { background-color: black; border: none;
 }
 
 .ui-btn.ui-btn-inline.ui-btn-icon-notext {
@@ -94,9 +76,7 @@ button.ui-btn.ui-btn-b{
     padding: 10px;
 }
 
-#help_page, #tags_page, #drawList_page{
-    background-color: black;
-}
+#help_page, #tags_page, #drawList_page{ background-color: black; }
 
 
 select {
