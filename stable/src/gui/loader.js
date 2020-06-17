@@ -340,7 +340,10 @@ dwvjq.gui.UrlLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
-        app.loadURLs([event.target.value]);
+        var list_urls = event.target.value.split(',')
+        console.log(list_urls)
+        app.loadURLs([list_urls[0]]);
+        // app.loadURLs([event.target.value]);
     }
 
     /**
