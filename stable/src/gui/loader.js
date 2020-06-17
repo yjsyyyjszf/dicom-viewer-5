@@ -94,11 +94,11 @@ dwvjq.gui.FileLoad = function (app)
 
             var file_img = files_img[0].name.split(".").shift()
             var file_json = (files_json).filter(value => value.name.includes(file_img))
-            var file_pair = [files_img[0]]
+            app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
             if (file_json.length) {
-                file_pair.push(file_json[0])
+                setTimeout(function(){ console.log('teste')
+                app.loadFiles([file_json[0]])}, 500);
             }
-            app.loadFiles(file_pair);
 
             // >>
             var fileNext = document.querySelector("#next_image");
@@ -110,11 +110,11 @@ dwvjq.gui.FileLoad = function (app)
                 else{
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
-                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
                     if (file_json.length) {
-                        file_pair.push(file_json[0])
+                        setTimeout(function(){ console.log('teste')
+                        app.loadFiles([file_json[0]])}, 500);
                     }
-                    app.loadFiles(file_pair)
                 }
             }
 
@@ -128,11 +128,11 @@ dwvjq.gui.FileLoad = function (app)
                 else {
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
-                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
+                    app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
                     if (file_json.length) {
-                        file_pair.push(file_json[0])
+                        setTimeout(function(){ console.log('teste')
+                        app.loadFiles([file_json[0]])}, 500);
                     }
-                    app.loadFiles(file_pair)
                 }
             }
 
@@ -228,11 +228,11 @@ dwvjq.gui.FolderLoad = function (app)
 
             var file_img = files_img[0].name.split(".").shift()
             var file_json = (files_json).filter(value => value.name.includes(file_img))
-            var file_pair = [files_img[0]]
+            app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
             if (file_json.length) {
-                file_pair.push(file_json[0])
+                setTimeout(function(){ console.log('teste')
+                app.loadFiles([file_json[0]])}, 500);
             }
-            app.loadFiles([files_img[0], file_json[0]]);
 
             // >>
             var fileNext = document.querySelector("#next_image");
@@ -244,11 +244,10 @@ dwvjq.gui.FolderLoad = function (app)
                 else{
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
-                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
                     if (file_json.length) {
-                        file_pair.push(file_json[0])
+                        setTimeout(function(){ console.log('teste')
+                        app.loadFiles([file_json[0]])}, 500);
                     }
-                    app.loadFiles(file_pair)
                 }
             }
 
@@ -262,11 +261,10 @@ dwvjq.gui.FolderLoad = function (app)
                 else {
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
-                    file_pair = [app.xfiles[app.xcurrentSlice - 1]]
                     if (file_json.length) {
-                        file_pair.push(file_json[0])
+                        setTimeout(function(){ console.log('teste')
+                        app.loadFiles([file_json[0]])}, 500);
                     }
-                    app.loadFiles(file_pair)
                 }
             }
 
@@ -381,9 +379,10 @@ dwvjq.gui.UrlLoad = function (app)
             var file_json = (files_json).filter(value => value.includes(file_img))
 
             app.loadURLs([files_img[0]]);
-            // if (file_json.length) {
-            //     setTimeout(app.loadURLs([file_json[0]]), 3000);
-            // }
+            if (file_json.length) {
+                setTimeout(function(){ console.log('teste')
+                app.loadURLs([file_json[0]])}, 500);
+            }
 
             // >>
             var fileNext = document.querySelector("#next_image");
@@ -396,9 +395,10 @@ dwvjq.gui.UrlLoad = function (app)
                     file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.includes(file_img))
                     app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    // if (file_json.length) {
-                    //     setTimeout(app.loadURLs([file_json[0]]), 3000);
-                    // }
+                    if (file_json.length) {
+                        setTimeout(function(){ console.log('teste')
+                        app.loadURLs([file_json[0]])}, 500);
+                    }
                 }
             }
 
@@ -413,9 +413,10 @@ dwvjq.gui.UrlLoad = function (app)
                     file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.includes(file_img))
                     app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    // if (file_json.length) {
-                    //     setTimeout(app.loadURLs([file_json[0]]), 3000);
-                    // }
+                    if (file_json.length) {
+                        setTimeout(function(){ console.log('teste')
+                        app.loadURLs([file_json[0]])}, 500);
+                    }
                 }
             }
 
