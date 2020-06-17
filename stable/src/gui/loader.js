@@ -77,9 +77,6 @@ dwvjq.gui.FileLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
-        app['xfiles'] = null
-        app['xurlfiles'] = []
-        app['xcurrentSlice'] = 1
 
         // arquivos carregados
         var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
@@ -92,6 +89,8 @@ dwvjq.gui.FileLoad = function (app)
         }
 
         if (event.target.files.length > 1) {
+
+            app['xurlfiles'] = []
 
             var file_img = files_img[0].name.split(".").shift()
             var file_json = (files_json).filter(value => value.name.includes(file_img))
@@ -213,11 +212,10 @@ dwvjq.gui.FolderLoad = function (app)
             self.onchange(event);
         }
 
-        app['xfiles'] = null
-        app['xurlfiles'] = []
-        app['xcurrentSlice'] = 1
-
         if (event.target.files.length > 1) {
+
+            app['xurlfiles'] = []
+
             // arquivos carregados
             var files_img = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() !== "json")
             var files_json = (Array.from(event.target.files)).filter(value => value.name.split(".").pop().toLowerCase() === "json")
@@ -348,9 +346,6 @@ dwvjq.gui.UrlLoad = function (app)
         if (typeof self.onchange === "function") {
             self.onchange(event);
         }
-        app['xfiles'] = null
-        app['xurlfiles'] = []
-        app['xcurrentSlice'] = 1
 
         var files_img = []
         var files_json = []
@@ -358,6 +353,11 @@ dwvjq.gui.UrlLoad = function (app)
         var list_urls = event.target.value.split(',')
 
         if (list_urls.length > 1) {
+
+            app['xfiles'] = null
+            app['xurlfiles'] = []
+            app['xcurrentSlice'] = 1
+
             for (var i = 0; i < list_urls.length; i++){
                 var url = {name: null}
                 url['name'] = list_urls[i].split('/').pop()
@@ -381,9 +381,9 @@ dwvjq.gui.UrlLoad = function (app)
             var file_json = (files_json).filter(value => value.includes(file_img))
 
             app.loadURLs([files_img[0]]);
-            if (file_json.length) {
-                setTimeout(app.loadURLs([file_json[0]]), 1000);
-            }
+            // if (file_json.length) {
+            //     setTimeout(app.loadURLs([file_json[0]]), 3000);
+            // }
 
             // >>
             var fileNext = document.querySelector("#next_image");
@@ -396,9 +396,9 @@ dwvjq.gui.UrlLoad = function (app)
                     file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.includes(file_img))
                     app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    if (file_json.length) {
-                        setTimeout(app.loadURLs([file_json[0]]), 1000);
-                    }
+                    // if (file_json.length) {
+                    //     setTimeout(app.loadURLs([file_json[0]]), 3000);
+                    // }
                 }
             }
 
@@ -413,9 +413,9 @@ dwvjq.gui.UrlLoad = function (app)
                     file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.includes(file_img))
                     app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    if (file_json.length) {
-                        setTimeout(app.loadURLs([file_json[0]]), 1000);
-                    }
+                    // if (file_json.length) {
+                    //     setTimeout(app.loadURLs([file_json[0]]), 3000);
+                    // }
                 }
             }
 
