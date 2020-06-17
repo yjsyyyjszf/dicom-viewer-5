@@ -104,7 +104,12 @@ dwvjq.gui.ToolboxContainer = function (app, infoController)
             toggleSaveState.href = window.URL.createObjectURL(blob);
 
             // coloca nome no json que será salvo
-            var file_name = app['xfiles'][app.xcurrentSlice - 1]['name']
+            if (app.xurlfiles.length){
+                var file_name = app['xurlfiles'][app.xcurrentSlice - 1]['name']
+            }
+            else {
+                var file_name = app['xfiles'][app.xcurrentSlice - 1]['name']
+            }
             file_name = file_name.split('.')
             file_name = file_name[0]
             var downloadButton = document.querySelector("a.ui-btn.ui-btn-inline.ui-btn-icon-notext.ui-mini.download-state.ui-icon-action")

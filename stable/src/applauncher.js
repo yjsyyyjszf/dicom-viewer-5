@@ -77,6 +77,7 @@ function startApp() {
 
     myapp['xdraw'] = false
     myapp['xfiles'] = null
+    myapp['xurlfiles'] = []
     myapp['xcurrentSlice'] = 1
 
     // show help
@@ -240,7 +241,7 @@ function startApp() {
         ++nReceivedLoadItem;
         // add new meta data to the info controller
         if (event.loadtype === "image") {
-            console.log(event)
+            //console.log(event)
             infoController.onLoadItem(event);
         }
         // hide drop box (for url load)
