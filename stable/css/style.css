@@ -133,3 +133,11 @@ div.ui-input-text.ui-body-inherit.ui-corner-all.ui-mini.ui-shadow-inset.ui-input
 label.inline.ui-btn.ui-corner-all.ui-btn-inherit.ui-btn-icon-left.ui-checkbox-off{
     padding: 10px 20px;
 }
+
+div.ui-input-text.ui-body-inherit.ui-corner-all.ui-mini.ui-shadow-inset.ui-input-has-clear{
+    background-color: rgb(58, 58, 58);
+    color: #ccc;
+    border: 1px solid rgba(17, 17, 17, 0.548);
+    border-radius: 3px;
+    padding: 5px;
+}

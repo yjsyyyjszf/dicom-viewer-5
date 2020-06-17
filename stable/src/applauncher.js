@@ -16,7 +16,7 @@ function startApp() {
     // initialise the application
     var loaderList = [
         "File",
-        //"Url",
+        "Url",
         // "GoogleDrive",
         // "Dropbox"
     ];
