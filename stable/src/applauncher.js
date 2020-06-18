@@ -201,11 +201,12 @@ function startApp() {
             changeTool(2)
         }
         else if (event.keyCode === 27) { // key ESC
-            if (document.URL.includes('#')) {
+            // volta para a pagina principal
+            if (document.URL.includes('#') && document.querySelector('a.ui-link.ui-btn-left.ui-btn.ui-icon-back.ui-btn-icon-left.ui-shadow.ui-corner-all')) {
                 var back_button = document.querySelector('a.ui-link.ui-btn-left.ui-btn.ui-icon-back.ui-btn-icon-left.ui-shadow.ui-corner-all') //.key ESC enable zoom
                 back_button.click()
             }
-            else {
+            else { // sai da ferramenta atual e ativa zoom
                 if (myapp['xfiles'].length){
                     myapp.xdraw = false
                     changeTool(0)
@@ -315,7 +316,16 @@ function startApp() {
     window.addEventListener('resize', myapp.onResize);
 
     // possible load from location
-    dwvjq.utils.loadFromUri(window.location.href, myapp);
+    //console.log(window.location)
+
+    var teste = window.location.href.replace(/%3FAWSAccessKeyId%3D/g, 'ACCESSKEYIDTAG')
+    teste = teste.replace(/%26Signature%3D/g, 'ESIGNATURETAG')
+    teste = teste.replace(/%253D%26Expires%3D/g, 'EEXPIRESTAG')
+    teste = teste.replace(/%0D%0A%/g,'')
+    console.log(teste)
+
+    // dwvjq.utils.loadFromUri(window.location.href, myapp);
+    dwvjq.utils.loadFromUri(teste, myapp)
 }
 
 // Image decoders (for web workers)
