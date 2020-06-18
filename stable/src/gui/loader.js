@@ -244,6 +244,7 @@ dwvjq.gui.FolderLoad = function (app)
                 else{
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
+                    app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
                     if (file_json.length) {
                         setTimeout(function(){ console.log('teste')
                         app.loadFiles([file_json[0]])}, 500);
@@ -261,6 +262,7 @@ dwvjq.gui.FolderLoad = function (app)
                 else {
                     file_img = app.xfiles[app.xcurrentSlice - 1].name.split(".").shift()
                     file_json = (files_json).filter(value => value.name.includes(file_img))
+                    app.loadFiles([app.xfiles[app.xcurrentSlice - 1]]);
                     if (file_json.length) {
                         setTimeout(function(){ console.log('teste')
                         app.loadFiles([file_json[0]])}, 500);
