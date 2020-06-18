@@ -350,92 +350,86 @@ dwvjq.gui.UrlLoad = function (app)
         var list_files = []
         var list_urls = event.target.value.split(',')
 
-        if (list_urls.length > 1) {
+        app['xfiles'] = null
+        app['xurlfiles'] = []
+        app['xcurrentSlice'] = 1
 
-            app['xfiles'] = null
-            app['xurlfiles'] = []
-            app['xcurrentSlice'] = 1
-
-            for (var i = 0; i < list_urls.length; i++){
-                var url = {name: null}
-                url['name'] = list_urls[i].split('/').pop()
-                url['name'] = url['name'].split('?').shift()
-                if (url['name'].includes('.json')){
-                    files_json.push(list_urls[i])
-                }
-                else {
-                    files_img.push(list_urls[i])
-                    list_files.push(url)
-                }
+        for (var i = 0; i < list_urls.length; i++){
+            var url = {name: null}
+            url['name'] = list_urls[i].split('/').pop()
+            url['name'] = url['name'].split('?').shift()
+            if (url['name'].includes('.json')){
+                files_json.push(list_urls[i])
             }
-            //console.log(list_files)
-
-            app.xurlfiles = list_files
-            app.xfiles = files_img
-            app.xjson = files_json
-            app.xcurrentSlice = 1
-
-            var file_img = list_files[0].name.split(".").shift()
-            var file_json = (files_json).filter(value => value.includes(file_img))
-
-            app.loadURLs([files_img[0]]);
-            if (file_json.length) {
-                setTimeout(function(){ console.log('teste')
-                app.loadURLs([file_json[0]])}, 500);
+            else {
+                files_img.push(list_urls[i])
+                list_files.push(url)
             }
-
-            // >>
-            var fileNext = document.querySelector("#next_image");
-            fileNext.onclick = function(){
-                app.xcurrentSlice += 1
-                if (app.xcurrentSlice > app.xfiles.length){
-                    app.xcurrentSlice = app.xfiles.length
-                }
-                else{
-                    file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
-                    file_json = (files_json).filter(value => value.includes(file_img))
-                    app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    if (file_json.length) {
-                        setTimeout(function(){ console.log('teste')
-                        app.loadURLs([file_json[0]])}, 500);
-                    }
-                }
-            }
-
-            // <<
-            var fileBefore = document.querySelector("#previous_image");
-            fileBefore.onclick = function(){
-                app.xcurrentSlice -= 1
-                if (app.xcurrentSlice < 1){
-                    app.xcurrentSlice = 1
-                }
-                else{
-                    file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
-                    file_json = (files_json).filter(value => value.includes(file_img))
-                    app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
-                    if (file_json.length) {
-                        setTimeout(function(){ console.log('teste')
-                        app.loadURLs([file_json[0]])}, 500);
-                    }
-                }
-            }
-
-            // keyboard shortcuts listener
-            var keyShortcut = function (event) {
-                if (event.keyCode === 39 ) { // key -> next image
-                    fileNext.click()
-                }
-                else if (event.keyCode === 37 ) { // key <- previous image
-                    fileBefore.click()
-                }
-            }
-            window.addEventListener("keydown", keyShortcut);
         }
-        // console.log(files_json, files_img)
-        // app.loadURLs([files_img[0]]);
-        else{
-            app.loadURLs([event.target.value]);
+
+        app.xurlfiles = list_files
+        app.xfiles = files_img
+        app.xjson = files_json
+        app.xcurrentSlice = 1
+
+        document.querySelector('body').xxx = list_files
+        console.log(document.querySelector('body').xxx)
+
+        var file_img = list_files[0].name.split(".").shift()
+        var file_json = (files_json).filter(value => value.includes(file_img))
+
+        app.loadURLs([files_img[0]]);
+        if (file_json.length) {
+            setTimeout(function(){ console.log('teste')
+            app.loadURLs([file_json[0]])}, 500);
         }
+
+        // >>
+        var fileNext = document.querySelector("#next_image");
+        fileNext.onclick = function(){
+            app.xcurrentSlice += 1
+            if (app.xcurrentSlice > app.xfiles.length){
+                app.xcurrentSlice = app.xfiles.length
+            }
+            else{
+                file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                file_json = (files_json).filter(value => value.includes(file_img))
+                app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
+                if (file_json.length) {
+                    setTimeout(function(){ console.log('teste')
+                    app.loadURLs([file_json[0]])}, 500);
+                }
+            }
+        }
+
+        // <<
+        var fileBefore = document.querySelector("#previous_image");
+        fileBefore.onclick = function(){
+            app.xcurrentSlice -= 1
+            if (app.xcurrentSlice < 1){
+                app.xcurrentSlice = 1
+            }
+            else{
+                file_img = app.xurlfiles[app.xcurrentSlice - 1].name.split(".").shift()
+                file_json = (files_json).filter(value => value.includes(file_img))
+                app.loadURLs([app.xfiles[app.xcurrentSlice - 1]]);
+                if (file_json.length) {
+                    setTimeout(function(){ console.log('teste')
+                    app.loadURLs([file_json[0]])}, 500);
+                }
+            }
+        }
+
+        // keyboard shortcuts listener
+        var keyShortcut = function (event) {
+            if (event.keyCode === 39 ) { // key -> next image
+                fileNext.click()
+            }
+            else if (event.keyCode === 37 ) { // key <- previous image
+                fileBefore.click()
+            }
+        }
+        window.addEventListener("keydown", keyShortcut);
     }
 
     /**
