@@ -318,14 +318,18 @@ function startApp() {
     // possible load from location
     //console.log(window.location)
 
-    var teste = window.location.href.replace(/%3FAWSAccessKeyId%3D/g, 'ACCESSKEYIDTAG')
-    teste = teste.replace(/%26Signature%3D/g, 'ESIGNATURETAG')
-    teste = teste.replace(/%253D%26Expires%3D/g, 'EEXPIRESTAG')
-    teste = teste.replace(/%0D%0A%/g,'')
-    console.log(teste)
+    var input_uri = window.location.href.replace(/%3FAWSAccessKeyId%3D/g, 'ACCESSKEYIDTAG')
+    input_uri = input_uri.replace(/%26Signature%3D/g, 'ESIGNATURETAG')
+    input_uri = input_uri.replace(/%253D%26Expires%3D/g, 'EEXPIRESTAG')
+    input_uri = input_uri.replace(/%0D%0A%/g,'')
 
     // dwvjq.utils.loadFromUri(window.location.href, myapp);
-    dwvjq.utils.loadFromUri(teste, myapp)
+    if (input_uri.includes('index.html#')){
+        window.location.href = window.location.origin+window.location.pathname
+    }
+    else {
+        dwvjq.utils.loadFromUri(input_uri, myapp)
+    }
 }
 
 // Image decoders (for web workers)

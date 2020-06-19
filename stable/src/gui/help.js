@@ -22,8 +22,7 @@ dwvjq.gui.appendVersionHtml = function (version)
  * @param {Object} app The associated app.
  * @param {String} resourcesPath The path to help resources.
  */
-dwvjq.gui.appendHelpHtml = function (toolList, mobile, app, resourcesPath)
-{
+dwvjq.gui.appendHelpHtml = function (toolList, mobile, app, resourcesPath) {
     var actionType = "mouse";
     // if( mobile ) {
     //     actionType = "touch";
@@ -139,5 +138,19 @@ dwvjq.gui.appendHelpHtml = function (toolList, mobile, app, resourcesPath)
     var toolPara = document.createElement("p");
     toolPara.appendChild(document.createTextNode(dwv.i18n("help.tool_intro")));
     helpNode.appendChild(toolPara);
+
     helpNode.appendChild(toolHelpDiv);
+
+
+    var readmePara = document.createElement("p");
+    readmePara.appendChild(document.createTextNode(dwv.i18n("help.readme.p0")));
+    helpNode.appendChild(readmePara);
+
+    var readmeLink = document.createElement("a");
+    readmeLink.appendChild(document.createTextNode(dwv.i18n("help.readme.link")));
+    readmeLink.href = dwv.i18n("help.readme.link")
+    readmeLink.style['color'] = 'white'
+    helpNode.appendChild(readmeLink);
+
+
 };
