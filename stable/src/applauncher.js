@@ -149,14 +149,14 @@ function startApp() {
         sel.addEventListener('change', function (e) {})
     }
 
-    // botão direito do mouse move a imagem. botão esquerdo ativa a ferramenta de desenho
+    // Botão direito do mouse move a imagem. botão esquerdo ativa a ferramenta de desenho
     window.document.querySelector('.layerContainer').onmousedown = function(eventData) {
+        if (eventData.button === 2) {
+            myapp.xdraw = false
+            changeTool(0)
+        }
         if (window.document.querySelector('select.toolSelect').value != 'WindowLevel'){
-            if (eventData.button === 2) {
-                myapp.xdraw = false
-                changeTool(0)
-            }
-            else if (eventData.button === 0 && !(myapp.xdraw)) {
+            if (eventData.button === 0 && !(myapp.xdraw)) {
                 myapp.xdraw = true
                 changeTool(1)
             }
@@ -173,21 +173,21 @@ function startApp() {
     }
 
 
-    // roda do mouse altera o nome da imagem que está sendo exibida
-    window.document.querySelector('.layerContainer').addEventListener("wheel", event => {
-        if (window.document.querySelector('select.toolSelect').value == 'Scroll'){
-            const delta = Math.sign(event.deltaY);
-            myapp.xcurrentSlice -= delta
-            if (myapp.xcurrentSlice > myapp.xfiles.length){
-                myapp.xcurrentSlice = myapp.xfiles.length
-            }
-            else if (myapp.xcurrentSlice < 1){
-                myapp.xcurrentSlice = 1
-            }
-            window.document.querySelector('li.info-tl-0').innerHTML = myapp.xfiles[myapp.xcurrentSlice - 1].name
-            console.info(myapp.xcurrentSlice);
-        }
-    });
+    // // roda do mouse altera o nome da imagem que está sendo exibida
+    // window.document.querySelector('.layerContainer').addEventListener("wheel", event => {
+    //     if (window.document.querySelector('select.toolSelect').value == 'Scroll'){
+    //         const delta = Math.sign(event.deltaY);
+    //         myapp.xcurrentSlice -= delta
+    //         if (myapp.xcurrentSlice > myapp.xfiles.length){
+    //             myapp.xcurrentSlice = myapp.xfiles.length
+    //         }
+    //         else if (myapp.xcurrentSlice < 1){
+    //             myapp.xcurrentSlice = 1
+    //         }
+    //         window.document.querySelector('li.info-tl-0').innerHTML = myapp.xfiles[myapp.xcurrentSlice - 1].name
+    //         console.info(myapp.xcurrentSlice);
+    //     }
+    // });
 
 
     // keyboard shortcuts listener
