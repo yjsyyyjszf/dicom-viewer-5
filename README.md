@@ -86,7 +86,7 @@ Base:
     %3Ffile%3Dpasta.png%26file%3Dpasta.png%26file%3Ddicom_teste.dcm%26file%3Dpasta_annotations.json
     ```
 
-    Final (adicionar)
+    Final
 
     ```html
     &dwvReplaceMode=void#&ui-state=dialog&ui-state=dialog&ui-state=dialog&ui-state=dialog
