@@ -324,7 +324,7 @@ function startApp() {
     input_uri = input_uri.replace(/%0D%0A%/g,'')
 
     // dwvjq.utils.loadFromUri(window.location.href, myapp);
-    if (input_uri.includes('index.html#')){
+    if (input_uri.includes('index.html#') || input_uri.includes('stable/#')){
         window.location.href = window.location.origin+window.location.pathname
     }
     else {
