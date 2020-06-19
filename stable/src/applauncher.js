@@ -325,7 +325,9 @@ function startApp() {
 
     // dwvjq.utils.loadFromUri(window.location.href, myapp);
     if (input_uri.includes('index.html#') || input_uri.includes('stable/#')){
-        window.location.href = window.location.origin+window.location.pathname
+        setTimeout(function(){
+            window.location.href = window.location.origin+window.location.pathname
+        }, 500)
     }
     else {
         dwvjq.utils.loadFromUri(input_uri, myapp)
