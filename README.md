@@ -4,7 +4,7 @@
 
 Visualizador de imagens médicas fundamentado no DICOM Web Viewer (DWV) do [https://github.com/ivmartel](https://github.com/ivmartel)
 
-![images/readme/Untitled%/Untitled.png](images/readme/Untitled%/Untitled.png)
+![images/readme/Untitled.png](images/readme/Untitled.png)
 
 ### Rodar local
 
@@ -30,7 +30,7 @@ Com esse visualizador é possível carregar imagens locais ou remotas.
 
 ### Imagens locais:
 
-![images/readme/Untitled%/Untitled%201.png](images/readme/Untitled%/Untitled%201.png)
+![images/readme/Untitled%201.png](images/readme/Untitled%201.png)
 
 Selecione os arquivos de imagem que deseja carregar
 
@@ -38,13 +38,13 @@ Para carregar uma pasta,  é só selecionar pasta na janela acima e fazer o uplo
 
 As anotações do json são sincronizadas através dos nomes dos arquivos json e imagem
 
-![images/readme/Untitled%/Untitled%202.png](images/readme/Untitled%/Untitled%202.png)
+![images/readme/Untitled%202.png](images/readme/Untitled%202.png)
 
 Se carregou mais de uma imagem, será possível apertar no botão para alterar a imagem
 
 ### Imagens remotas
 
-![images/readme/Untitled%/Untitled%203.png](images/readme/Untitled%/Untitled%203.png)
+![images/readme/Untitled%203.png](images/readme/Untitled%203.png)
 
 Para não existir problema com política de CORS, pode usar a seguinte URL no input
 
@@ -54,7 +54,7 @@ Para não existir problema com política de CORS, pode usar a seguinte URL no in
 
 Para inserir mais de um link de arquivo, separe-os com vírgula
 
-![images/readme/Untitled%/Untitled%204.png](images/readme/Untitled%/Untitled%204.png)
+![images/readme/Untitled%204.png](images/readme/Untitled%204.png)
 
 ### Imagens remotas através de URI:
 
