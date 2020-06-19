@@ -1,5 +1,3 @@
-# README.md
-
 # Harpia DICOM Viewer
 
 Visualizador de imagens médicas fundamentado no DICOM Web Viewer (DWV) do [https://github.com/ivmartel](https://github.com/ivmartel)
