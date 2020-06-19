@@ -350,7 +350,7 @@ dwvjq.gui.UrlLoad = function (app)
         var files_img = []
         var files_json = []
         var list_files = []
-        var list_urls = event.target.value.split(',')
+        var list_urls = event.target.value.replace(' ', '').split(',')
 
         app['xfiles'] = null
         app['xurlfiles'] = []
@@ -444,6 +444,7 @@ dwvjq.gui.UrlLoad = function (app)
         urlLoadInput.onchange = onchangeinternal;
         urlLoadInput.type = "url";
         urlLoadInput.className = "imageurl";
+        urlLoadInput.placeholder="Coloque o link da imagem"
         urlLoadInput.setAttribute("data-clear-btn","true");
         urlLoadInput.setAttribute("data-mini","true");
 
